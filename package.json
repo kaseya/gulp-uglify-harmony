@@ -1,5 +1,5 @@
 {
-  "name": "gulp-uglify",
+  "name": "gulp-uglify-harmony",
   "description": "Minify files with UglifyJS.",
   "version": "1.5.2",
   "author": "Terin Stock <terinjokes@gmail.com>",
@@ -10,7 +10,7 @@
     "gulp-util": "^3.0.0",
     "isobject": "^2.0.0",
     "through2": "^2.0.0",
-    "uglify-js": "2.6.1",
+    "uglify-js": "mishoo/UglifyJS2#harmony",
     "uglify-save-license": "^0.4.1",
     "vinyl-sourcemaps-apply": "^0.2.0"
   },
