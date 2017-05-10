@@ -25,7 +25,6 @@ function setup(opts) {
   }
 
   var options = deap({}, opts, {
-    fromString: true,
     output: {}
   });
 
@@ -63,11 +62,14 @@ module.exports = function (opts, uglify) {
 
     var mangled = trycatch(function () {
       var m = uglify.minify(String(file.contents), options);
+      if (m.error) {
+          return m.error;
+      }
       m.code = new Buffer(m.code.replace(reSourceMapComment, ''));
       return m;
     }, createError.bind(null, file));
 
-    if (mangled instanceof PluginError) {
+    if (mangled instanceof Error) {
       return callback(mangled);
     }
 
